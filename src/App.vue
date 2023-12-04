@@ -40,6 +40,7 @@ function reGetInfo(toPath: string) {
 		if (!GetRouter().pages.get().length) {
 			GetRouter().pages.set(routerStore.pages)
 			GetRouter().tabbar.set(routerStore.tabbar)
+			GetRouter().mircoapp.set(routerStore.microApp)
 			GetRouter().history.set(routerStore.history)
 			createRoutes().then((re) => {
 				if (re) {

@@ -4,7 +4,6 @@ import useRouterStore from '@/store/modules/router'
 import { Loadding } from 'wnview'
 import { showFailToast } from "vant"
 
-// 路由创建
 export interface Page {
   path: string,
   name: string,
@@ -19,6 +18,11 @@ export interface Tabbar {
     iconPath: string,
     selectedIconPath: string
   }
+}
+
+export interface Mircro{
+  name:string,
+  entry:string
 }
 
 //创建路由闭包
@@ -39,6 +43,15 @@ function Router() {
     },
     set: (list: Tabbar[]) => {
       tabbars = list
+    }
+  }
+  let mircoapps: Mircro[] = []
+  let mircoapp = {
+    get: () => {
+      return mircoapps
+    },
+    set: (list: Mircro[]) => {
+      mircoapps = list
     }
   }
   let historys: string[] = []
@@ -70,6 +83,7 @@ function Router() {
     pages,
     tabbar,
     history,
+    mircoapp,
   }
 }
 
@@ -150,6 +164,14 @@ export function goAndCloseAll(path: string) {
   }, 10);
 }
 
+export function goMicro(path:string){
+  if(path){
+    router.push({
+      path: '/Micro',
+    })
+  }
+}
+
 async function getPages() {
   //获取路由store
   const routerStore = useRouterStore()
@@ -159,8 +181,10 @@ async function getPages() {
     if (re) {
       Route.pages.set(re.pages || [])
       Route.tabbar.set(re.tabbar || [])
+      Route.mircoapp.set(re.microApp || [])
       routerStore.pages = re.pages || []
       routerStore.tabbar = re.tabbar || []
+      routerStore.microApp = re.microApp || []
     } else {
       showFailToast('获取用户信息失败:路由')
       return false
@@ -201,6 +225,7 @@ export async function createRoutes() {
     redirect: routes.length ? routes[0].path : '/',
     children: routes,
   }
+
   // 添加路由
   router.addRoute(tempPage)
   load.close()

@@ -1,16 +1,18 @@
 import { defineStore } from 'pinia'
 import { reactive, toRefs } from 'vue'
-import { Page, Tabbar } from '@/utils'
+import { Page, Tabbar, Mircro } from '@/utils'
 
 const useRouterStore = defineStore('router', () => {
   let history: string[] = []
   let pages: Page[] = []
   let tabbar: Tabbar[] = []
+  let microApp: Mircro[] = []
   const state = reactive({
     history: history,
     path: '',
     pages: pages,
-    tabbar: tabbar
+    tabbar: tabbar,
+    microApp: microApp,
   })
 
   // 把pages转换成Map对象
@@ -34,6 +36,15 @@ const useRouterStore = defineStore('router', () => {
     return tabbarMap
   }
 
+  // 把mircro转换成Map对象
+  const MircroMap = () => {
+    let mircroMap = new Map()
+    state.microApp.forEach(item => {
+      mircroMap.set(item.name, item)
+    })
+    return mircroMap
+  }
+
   // 当前页面name
   const PageTitle = () => {
     const currentPath = state.path
@@ -52,18 +63,19 @@ const useRouterStore = defineStore('router', () => {
   const TabbarShow = () => {
     const currentPath = state.path
     let page = TabbarMap().get(currentPath)
-    return page?true:false
+    return page ? true : false
   }
 
   // 是否显示navHome
   const NavHomeShow = () => {
-    return state.history.length > 0? false : true
+    return state.history.length > 0 ? false : true
   }
 
   return {
     ...toRefs(state),
     PagesMap,
     TabbarMap,
+    MircroMap,
     PageTitle,
     NavbarShow,
     TabbarShow,

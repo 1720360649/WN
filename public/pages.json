@@ -10,16 +10,22 @@
 			"name": "设置",
 			"type": "local"
 		},
-    {
-      "path": "/Blog/Test",
-      "name": "测试",
-      "type": "local"
-    },
-    {
-      "path": "/Blog/Test2",
-      "name": "测试2",
-      "type": "local"
-    }
+		{
+			"path": "/Blog/Test",
+			"name": "测试",
+			"type": "local"
+		},
+		{
+			"path": "/Blog/Test2",
+			"name": "测试2",
+			"type": "local"
+		}
+	],
+	"microApp": [
+		{
+			"name": "jczlt",
+			"entry": "//localhost:8080/jczlt/"
+		}
 	],
 	"tabbar": [
 		{

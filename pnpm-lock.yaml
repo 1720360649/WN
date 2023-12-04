@@ -38,6 +38,9 @@ dependencies:
   wnview:
     specifier: ^1.0.412
     version: 1.0.412(vue3-lottie@3.2.0)
+  wujie-vue3:
+    specifier: ^1.0.21
+    version: 1.0.21(vue@3.3.9)
 
 devDependencies:
   '@vant/auto-import-resolver':
@@ -1281,7 +1284,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.0
-    dev: true
 
   /@babel/template@7.22.15:
     resolution: {integrity: sha512-QPErUVm4uyJa60rkI73qneDacvdvzxshT3kksGqlGWYdOTIUOwJ7RDUL8sGqslY1uXWSL6xMFKEXDS3ox2uF0w==}
@@ -5600,7 +5602,6 @@ packages:
 
   /regenerator-runtime@0.14.0:
     resolution: {integrity: sha512-srw17NI0TUWHuGa5CFGGmhfNIeja30WMBfbslPNhf6JrqQlLN5gcrvig1oqPxiVaXb0oW0XRKtH6Nngs5lKCIA==}
-    dev: true
 
   /regenerator-transform@0.15.2:
     resolution: {integrity: sha512-hfMp2BoF0qOk3uc5V20ALGDS2ddjQaLrdl7xrGXvAIow7qeWRM2VA2HuCHkUKk9slq3VwEwLNK3DFBqDfPGYtg==}
@@ -6896,6 +6897,21 @@ packages:
       utf-8-validate:
         optional: true
     dev: true
+
+  /wujie-vue3@1.0.21(vue@3.3.9):
+    resolution: {integrity: sha512-KFVmS5D0YqYOrF+lMxD9srxMfO8sVTo4DsrKfkWHOZ0ZcgUz9RKRiYgEbENuYLATUj56U4Tf7dgVeqCJBKKdlA==}
+    peerDependencies:
+      vue: ^3.0.0
+    dependencies:
+      vue: 3.3.9(typescript@4.5.5)
+      wujie: 1.0.21
+    dev: false
+
+  /wujie@1.0.21:
+    resolution: {integrity: sha512-MTTFsjIT2dI/WLNczyUB50oLrWNuaPiWJiqC/xhMq67Ff2smcBtiBW3pKqzJxrHbefa1C8YsP3wtqar/+YckzQ==}
+    dependencies:
+      '@babel/runtime': 7.23.4
+    dev: false
 
   /y18n@5.0.8:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}

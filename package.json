@@ -17,7 +17,8 @@
     "vue-class-component": "^8.0.0-0",
     "vue-router": "^4.0.3",
     "vue3-lottie": "^3.2.0",
-    "wnview": "^1.0.412"
+    "wnview": "^1.0.412",
+    "wujie-vue3": "^1.0.21"
   },
   "devDependencies": {
     "@vant/auto-import-resolver": "^1.0.2",

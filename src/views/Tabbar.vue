@@ -1,5 +1,5 @@
 <template>
-	<van-nav-bar :fixed="true" :placeholder="true" :title="'测试'"></van-nav-bar>
+	<van-nav-bar :fixed="true" :placeholder="true" :title="activeTitle"></van-nav-bar>
 	<div
 		class="app-container"
 		:style="{
@@ -41,6 +41,7 @@ import { onMounted, ref, shallowRef } from 'vue'
 const routerStore = useRouterStore()
 
 const active = ref(0)
+const activeTitle = ref('')
 
 const activeComponent = shallowRef()
 
@@ -60,6 +61,7 @@ function onTabbar(index: number) {
     index = 0
   }
 	active.value = index
+  activeTitle.value = routerStore.tabbar[index].name
 	activeComponent.value =
 		require(`@/views${routerStore.tabbar[index].path}.vue`).default
 }

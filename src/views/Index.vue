@@ -24,7 +24,7 @@ async function onHome(){
   //假设登录成功
   let re = await createRoutes()
   if(re){
-    goTabbar('/Blog/Set')
+    goTabbar('/Blog/Index')
   }
 }
 
